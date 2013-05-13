@@ -2,25 +2,14 @@ package de.opitzconsulting.katas.relativeluminance
 
 class RGB {
 
-    def r
-    def g
-    def b
+    def rsRGB
+    def gsRGB
+    def bsRGB
 
     RGB(def r, def g, def b) {
-        this.r = r
-        this.g = g
-        this.b = b
+        rsRGB = r / 255
+        gsRGB = g / 255
+        bsRGB = b / 255
     }
 
-    def rsRGB() {
-        r / 255
-    }
-
-    def gsRGB() {
-        g / 255
-    }
-
-    def bsRGB() {
-        b / 255
-    }
 }

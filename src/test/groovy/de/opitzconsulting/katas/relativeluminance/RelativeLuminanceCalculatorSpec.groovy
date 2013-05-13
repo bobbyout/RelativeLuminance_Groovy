@@ -22,7 +22,7 @@ class RelativeLuminanceCalculatorSpec extends Specification {
         calculator.calculateRelativeLuminance(r, g, b) == value
 
         where:
-        r    | g    | b    | value
+        rsRGB    | gsRGB    | bsRGB    | value
         "ff" | "ff" | "ff" | 42
         "cc" | "cc" | "cc" | 42
         "33" | "33" | "33" | 42
