@@ -6,10 +6,16 @@ class RGB {
     def gsRGB
     def bsRGB
 
-    RGB(def r, def g, def b) {
-        rsRGB = r / 255
-        gsRGB = g / 255
-        bsRGB = b / 255
+    RGB(def r8Bit, def g8Bit, def b8Bit) {
+        rsRGB = r8Bit / 255
+        gsRGB = g8Bit / 255
+        bsRGB = b8Bit / 255
     }
 
+    static def calculateRGB(def sRGB) {
+        if (sRGB <= 0.03928)
+            sRGB / 12.92
+        else
+            Math.pow((sRGB + 0.055) / 1.055, 2.4)
+    }
 }
