@@ -3,28 +3,21 @@ package de.opitzconsulting.katas.relativeluminance
 import spock.lang.Specification
 import spock.lang.Unroll
 
+import static org.junit.Assert.assertEquals
+
+
 class RelativeLuminanceCalculatorSpec extends Specification {
 
-    RGB calculator
-
-    def setup() {
-        calculator = new RGB()
-    }
-
-    void "calculator is initialized"() {
-        expect:
-        calculator
-    }
-
-    @Unroll("calculateRelativeLuminance #rgb -> #value")
+    @Unroll("calculate relative luminance for #r8Bit, #g8Bit, #b8Bit -> #value")
     void "calculate relative luminance"() {
         expect:
-        calculator.calculateRelativeLuminance(r, g, b) == value
+        assertEquals value, new RGB(r8Bit, g8Bit, b8Bit).relativeLuminance, RGBTest.PRECISION
 
         where:
-        rsRGB    | gsRGB    | bsRGB    | value
-        "ff" | "ff" | "ff" | 42
-        "cc" | "cc" | "cc" | 42
-        "33" | "33" | "33" | 42
+        r8Bit | g8Bit | b8Bit | value
+        0     | 0     | 0     | 0
+        10    | 10    | 10    | 0.00304
+        11    | 11    | 11    | 0.00335
+        255   | 255   | 255   | 1
     }
 }

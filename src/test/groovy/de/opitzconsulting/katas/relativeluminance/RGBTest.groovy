@@ -1,6 +1,5 @@
 package de.opitzconsulting.katas.relativeluminance
 
-import org.junit.Assert
 import org.junit.Test
 
 import static org.junit.Assert.assertEquals
@@ -37,8 +36,10 @@ class RGBTest {
         assertEquals 0.00304, RGB.calculateRGB(0.03928), PRECISION
         assertEquals 0.00304, RGB.calculateRGB(0.03929), PRECISION
         assertEquals 0.00304, RGB.calculateRGB(0.03935), PRECISION
+        assertEquals 0.00304, RGB.calculateRGB(10 / 255), PRECISION
         assertEquals 0.00305, RGB.calculateRGB(0.03936), PRECISION
         assertEquals 0.00320, RGB.calculateRGB(0.04127), PRECISION
+        assertEquals 0.00335, RGB.calculateRGB(11 / 255), PRECISION
         assert RGB.calculateRGB(1) == 1
     }
 }

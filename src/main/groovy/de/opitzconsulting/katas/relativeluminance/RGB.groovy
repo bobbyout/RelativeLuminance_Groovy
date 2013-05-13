@@ -18,4 +18,11 @@ class RGB {
         else
             Math.pow((sRGB + 0.055) / 1.055, 2.4)
     }
+
+    def getRelativeLuminance() {
+        def r = calculateRGB(rsRGB)
+        def g = calculateRGB(gsRGB)
+        def b = calculateRGB(bsRGB)
+        0.2126 * r + 0.7152 * g + 0.0722 * b
+    }
 }
