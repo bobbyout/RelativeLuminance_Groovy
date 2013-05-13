@@ -5,10 +5,10 @@ import spock.lang.Unroll
 
 class RelativeLuminanceCalculatorSpec extends Specification {
 
-    RelativeLuminanceCalculator calculator
+    RGB calculator
 
     def setup() {
-        calculator = new RelativeLuminanceCalculator()
+        calculator = new RGB()
     }
 
     void "calculator is initialized"() {
@@ -16,15 +16,15 @@ class RelativeLuminanceCalculatorSpec extends Specification {
         calculator
     }
 
-    @Unroll("calc #rgb -> #value")
-    void "calc"() {
+    @Unroll("calculateRelativeLuminance #rgb -> #value")
+    void "calculate relative luminance"() {
         expect:
-        calculator.calc(rgb) == value
+        calculator.calculateRelativeLuminance(r, g, b) == value
 
         where:
-        rgb      | value
-        "ffffff" | 42
-        "cccccc" | 42
-        "333333" | 42
+        r    | g    | b    | value
+        "ff" | "ff" | "ff" | 42
+        "cc" | "cc" | "cc" | 42
+        "33" | "33" | "33" | 42
     }
 }
