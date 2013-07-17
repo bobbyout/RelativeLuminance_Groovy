@@ -24,11 +24,8 @@ class ColorSpec extends Specification {
 
     @Unroll("bigX(#xsRGB) is #bigX")
     void bigX() {
-        given:
-        Color color = new Color(0, 0, 0);
-
         expect:
-        color.bigX(xsRGB).setScale(5, BigDecimal.ROUND_HALF_UP) == bigX
+        Color.bigX(xsRGB).setScale(5, BigDecimal.ROUND_HALF_UP) == bigX
 
         where:
         xsRGB   | bigX
@@ -40,11 +37,8 @@ class ColorSpec extends Specification {
 
     @Unroll("xsRGB(#x8Bit) is #xsRGB")
     void xsRGB() {
-        given:
-        Color color = new Color(0, 0, 0);
-
         expect:
-        color.xsRGB(x8Bit).setScale(5, BigDecimal.ROUND_HALF_UP) == xsRGB
+        Color.xsRGB(x8Bit).setScale(5, BigDecimal.ROUND_HALF_UP) == xsRGB
 
         where:
         x8Bit | xsRGB
