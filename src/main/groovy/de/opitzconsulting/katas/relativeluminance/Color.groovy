@@ -18,4 +18,8 @@ class Color {
             return xsRGB / 12.92
         return Math.pow((xsRGB + 0.055) / 1.055, 2.4)
     }
+
+    BigDecimal xsRGB(int x8Bit) {
+        return x8Bit / 255
+    }
 }

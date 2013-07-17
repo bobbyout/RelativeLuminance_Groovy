@@ -40,4 +40,20 @@ class ColorSpec extends Specification {
         0.04314 | 0.00335
         1       | 1
     }
+
+    @Unroll("xsRGB(#x8Bit) is #xsRGB")
+    void xsRGB() {
+        given:
+        Color color = new Color(0, 0, 0);
+
+        expect:
+        color.xsRGB(x8Bit).setScale(5, BigDecimal.ROUND_HALF_UP) == xsRGB
+
+        where:
+        x8Bit | xsRGB
+        0     | 0
+        128   | 0.50196
+        196   | 0.76863
+        1     | 0.00392
+    }
 }
