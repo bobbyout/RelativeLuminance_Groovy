@@ -2,18 +2,15 @@ package de.opitzconsulting.katas.relativeluminance
 
 class Color {
 
-    BigDecimal bigR
-    BigDecimal bigG
-    BigDecimal bigB
+    BigDecimal rsRGB
+    BigDecimal gsRGB
+    BigDecimal bsRGB
 
-    Color(BigDecimal bigR, BigDecimal bigG, BigDecimal bigB) {
-        this.bigR = bigR
-        this.bigG = bigG
-        this.bigB = bigB
+    Color(BigDecimal r, BigDecimal g, BigDecimal b) {
     }
 
     BigDecimal relativeLuminance() {
-        return 0.2126 * bigR + 0.7152 * bigG + 0.0722 * bigB
+        return 0.2126 * bigX(rsRGB) + 0.7152 * bigX(gsRGB) + 0.0722 * bigX(bsRGB)
     }
 
     BigDecimal bigX(BigDecimal xsRGB) {
