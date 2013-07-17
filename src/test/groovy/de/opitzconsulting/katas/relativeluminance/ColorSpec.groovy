@@ -5,7 +5,7 @@ import spock.lang.Unroll
 
 class ColorSpec extends Specification {
 
-    @Unroll("relative luminance for R: #bigR, G: #bigG, B: #bigB is #value")
+    @Unroll("relative luminance for R: #r, G: #g, B: #b is #value")
     void relativeLuminance() {
         given:
         Color color = new Color(r, g, b)
